@@ -71,9 +71,9 @@
     var body = 'Test Status for work';
     var picture = 'http://alexjam.es/images/Pip.jpg';
     //var picture = 'C:\\Users\\alex.james\\Desktop\\borat.jpg';
-    var desc = 'I wonder what this does?';
-    var title = 'Where does the title go?';
-      FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, name:title, caption: 'Caption Ho!', href:"http://alexjam.es"}, function(response) 
+    var desc = 'Here\'s my test photo';
+    var name = 'Name of the photo is: Test Photo';
+      FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, name:name, caption: 'Caption Ho!', href:"http://alexjam.es"}, function(response) 
       {
         
         if (!response || response.error) 
