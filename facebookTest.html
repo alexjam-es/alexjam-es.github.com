@@ -101,7 +101,7 @@
     //var picture = 'C:\\Users\\alex.james\\Desktop\\borat.jpg';
     var desc = 'Here\'s my test photo';
     var name = 'Name of the photo is: Test Photo';
-      FB.api('/me/photos', 'post', { message: body, picture: picture, description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
+      FB.api('/me/photos', 'post', {picture: picture}, function(response) 
       {
         
         if (!response) 
