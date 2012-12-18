@@ -65,7 +65,6 @@
    function showStatusButton()
    {
      $('#statusButton').attr("style", "display=true");
-     
      $('#pictureButton').attr("style", "display=true");
    }
    
@@ -105,10 +104,17 @@
       FB.api('/me/photos', 'post', { message: body, picture: picture, description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
       {
         
-        if (!response || response.error) 
+        if (!response) 
         {
-          alert('Error occured +' response.name);
-        } 
+          alert('No Reponse');
+        }
+
+     	else-if (response.error)
+
+     	{
+     		alert('Error occured' + response.name);
+     	}
+        
       
         else 
         {
