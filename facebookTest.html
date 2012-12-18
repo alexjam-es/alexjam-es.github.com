@@ -10,6 +10,9 @@
 <div id="statusButton" style="display:none;">
   <a href="javascript:" title="Post Status">Post Status</a>
 </div>
+<div id="pictureButton" style="display:none;">
+  <a href="javascript:" title="Post Picture">Picture</a>
+</div>
 <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -62,6 +65,7 @@
    function showStatusButton()
    {
      $('#statusButton').attr("style", "display=true");
+     $('#pictureButton').attr("style", "display=true");
    }
    
    $(function(){
@@ -73,7 +77,31 @@
     //var picture = 'C:\\Users\\alex.james\\Desktop\\borat.jpg';
     var desc = 'Here\'s my test photo';
     var name = 'Name of the photo is: Test Photo';
-      FB.api('/me/feed', 'post', { message: body, media: [{type:"image",src: "http://alexjam.es/images/Pip.jpg", href: "http://alexjam.es" }], description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
+      FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
+      {
+        
+        if (!response || response.error) 
+        {
+          alert('Error occured');
+        } 
+      
+        else 
+        {
+          alert('Post ID: ' + response.id);
+        }
+    
+      });
+    
+    });
+
+   $('#statusButton').click(function(){
+    console.log("buttonClicked");
+    var body = 'Test Status for work';
+    var picture = 'http://alexjam.es/images/Pip.jpg';
+    //var picture = 'C:\\Users\\alex.james\\Desktop\\borat.jpg';
+    var desc = 'Here\'s my test photo';
+    var name = 'Name of the photo is: Test Photo';
+      FB.api('/me/photos', 'post', { message: body, picture: picture, description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
       {
         
         if (!response || response.error) 
