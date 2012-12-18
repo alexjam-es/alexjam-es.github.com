@@ -31,7 +31,9 @@
   function login() {
     FB.login(function(response) {
         if (response.authResponse) {
-            console.log("Logged In");
+            console.log("Now Authorized + Logged in");
+            var accessToken = response.authResponse.accessToken;
+            console.log(accessToken);
         } else {
             console.log("Cancelled");
         }
