@@ -15,7 +15,7 @@
 
        FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
-        console.log("Authorized");
+        console.log("Authorized + Logged in");
       } else if (response.status === 'not_authorized') {
         login();
       } else {
@@ -29,9 +29,9 @@
   function login() {
     FB.login(function(response) {
         if (response.authResponse) {
-            // connected
+            console.log("Logged In");
         } else {
-            // cancelled
+            console.log("Cancelled");
         }
     });
 }
