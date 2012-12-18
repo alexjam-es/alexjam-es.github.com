@@ -73,7 +73,7 @@
     //var picture = 'C:\\Users\\alex.james\\Desktop\\borat.jpg';
     var desc = 'Here\'s my test photo';
     var name = 'Name of the photo is: Test Photo';
-      FB.api('/me/feed', 'post', { message: body, media: [{"type":"image","src": "http://alexjam.es/images/Pip.jpg", "href": "http://alexjam.es" }], description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
+      FB.api('/me/feed', 'post', { message: body, media: [{type:"image",src: "http://alexjam.es/images/Pip.jpg", href: "http://alexjam.es" }], description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
       {
         
         if (!response || response.error) 
