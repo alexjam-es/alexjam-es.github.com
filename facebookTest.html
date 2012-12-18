@@ -69,8 +69,8 @@
    $('#statusButton').click(function(){
     console.log("buttonClicked");
     var body = 'Test Status for work';
-    var picture = 'http://alexjam.es/images/Pip.jpg';
-   // var picture = 'C:\\Users\\alex.james\\Desktop\\Borat.jpg';
+    //var picture = 'http://alexjam.es/images/Pip.jpg';
+    var picture = 'C:\\Users\\alex.james\\Desktop\\borat.jpg';
     var desc = 'I wonder what this does?';
     var title = 'Where does the title go?';
       FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, name:title, caption: 'Caption Ho!', href:"http://alexjam.es"}, function(response) 
