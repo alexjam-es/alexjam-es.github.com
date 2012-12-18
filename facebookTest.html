@@ -3,7 +3,9 @@
 <h1>Facebook Test</h1>
 <div id="fb-root"></div>
 
-<div id="statusButton" style="display:none;"></div>
+<div id="statusButton" style="display:none;">
+  <a href="javascript:" title="Post Status">Post Status</a>
+</div>
 <script>
   // Additional JS functions here
   window.fbAsyncInit = function() {
@@ -20,6 +22,7 @@
         console.log("Authorized + Logged in");
         var accessToken = response.authResponse.accessToken;
         console.log(accessToken);
+        showStatusButton();
       } else if (response.status === 'not_authorized') {
         login();
       } else {
@@ -56,6 +59,10 @@
    {
      $('#statusButton').attr("style", "display=true");
    }
+   
+   $('#statusButton').click(function(){
+    console.log("buttonClicked");
+      });
    
 </script>
 <script src="//connect.facebook.net/en_US/all.js"></script>
