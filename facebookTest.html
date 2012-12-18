@@ -5,7 +5,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
 <h1>Facebook Test</h1>
-
 <div id="fb-root"></div>
 
 <div id="statusButton" style="display:none;">
@@ -51,7 +50,7 @@
         } else {
             console.log("Cancelled");
         }
-    },{scope: 'publish_stream','photo_upload'});
+    },{scope: 'publish_stream, photo_upload'});
   }
 
   // Load the SDK Asynchronously
