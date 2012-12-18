@@ -16,6 +16,8 @@
        FB.getLoginStatus(function(response) {
       if (response.status === 'connected') {
         console.log("Authorized + Logged in");
+        var accessToken = response.authResponse.accessToken;
+        console.log(accessToken);
       } else if (response.status === 'not_authorized') {
         login();
       } else {
