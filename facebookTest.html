@@ -72,7 +72,7 @@
     var picture = 'http://alexjam.es/images/Pip.jpg';
     var desc = 'I wonder what this does?';
     var title = 'Where does the title go?';
-      FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, ttitle:title}, function(response) 
+      FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, title:title}, function(response) 
       {
         
         if (!response || response.error) 
