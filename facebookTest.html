@@ -51,7 +51,6 @@
   }
 
   // Load the SDK Asynchronously
-  
   (function(d){
      var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
      if (d.getElementById(id)) {return;}
@@ -74,7 +73,7 @@
     //var picture = 'C:\\Users\\alex.james\\Desktop\\borat.jpg';
     var desc = 'Here\'s my test photo';
     var name = 'Name of the photo is: Test Photo';
-      FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, name:name, caption: 'Caption Ho!', href:"http://alexjam.es"}, function(response) 
+      FB.api('/me/feed', 'post', { message: body, media: [{type:"image",src: picture, href:"http://alexjam.es" }] description: desc, name:name, caption: 'Caption Ho!'}, function(response) 
       {
         
         if (!response || response.error) 
