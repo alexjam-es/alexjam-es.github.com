@@ -70,7 +70,9 @@
     console.log("buttonClicked");
     var body = 'Test Status for work';
     var picture = 'http://alexjam.es/images/Pip.jpg';
-      FB.api('/me/feed', 'post', { message: body, picture: picture}, function(response) 
+    var desc = 'I wonder what this does?';
+    var title = 'Where does the title go?';
+      FB.api('/me/feed', 'post', { message: body, picture: picture, description: desc, ttitle:title}, function(response) 
       {
         
         if (!response || response.error) 
