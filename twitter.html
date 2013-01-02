@@ -18,7 +18,9 @@
         
         function getSignature()
         {
-	    var unixtime = parseInt(new Date.getTime() / 1000);
+	    var foo = new Date; // Generic JS date object
+	    var unixtime_ms = foo.getTime(); // Returns milliseconds since the epoch
+	    var unixtime = parseInt(unixtime_ms / 1000);
 	    alert("unixtime: " + unixtime);
 	    var callBackURL = "http://alexjam.es/twitter.html"; //oob for now
 	    var nonce = unixtime;
