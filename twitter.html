@@ -3,147 +3,25 @@
 
 </head>
 <body>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-crypto-sha1.js"></script>
-    <script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-hmac-min.js"></script>
-    <script>
-    
-        $(function(){
-            
-            $('#tweet').click(function(){
-                getSignature();
-            });
-            
-        });
-        
-        function getSignature()
-        {
-	    var foo = new Date; // Generic JS date object
-	    var unixtime_ms = foo.getTime(); // Returns milliseconds since the epoch
-	    var unixtime = parseInt(unixtime_ms / 1000);
-	    alert("unixtime: " + unixtime);
-	    var callBackURL = "http://alexjam.es/twitter.html"; //oob for now
-	    var nonce = unixtime;
-            alert("nonce: " + nonce);	
-	    //Create Signature Base String using formula
-	    var baseSign = "POST" + "&" + encodeURIComponent("https://api.twitter.com/oauth/request_token").toString() + "&"
-	     + encodeURIComponent("oauth_callback") + "%3D" + encodeURIComponent(callBackURL)
-	     + "%26"
-	     + encodeURIComponent("oauth_consumer_key") + "%3D" + encodeURIComponent("rSULJSl20cw9LZvTx21oDw")
-	     + "%26"
-	     + encodeURIComponent("oauth_nonce") + "%3D" + encodeURIComponent(nonce)
-	     + "%26"
-	     + encodeURIComponent("oauth_signature_method") + "%3D" + encodeURIComponent("HMAC-SHA1")
-	     + "%26"
-	     + encodeURIComponent("oauth_timestamp") + "%3D" + encodeURIComponent(unixtime)
-	     + "%26"
-	     + encodeURIComponent("oauth_version") + "%3D" + encodeURIComponent("1.0");
-	
-	    //Create Signature, With consumer Secret key we sign the signature base string
-	   // var signature = b64_hmac_sha1("DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg", baseSign);
-	    alert(baseSign);
-	    var signature = Crypto.HMAC(Crypto.SHA1, baseSign, "DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg")
-	 
-	    alert(signature);
-	    //Build headers from signature
-	    var jsonData = JSON.stringify({
-	        Authorization: {
-	        oauth_callback: "oob",
-	        oauth_consumer_key: "rSULJSl20cw9LZvTx21oDw",
-	        oauth_nonce: "1234567891",
-	        oauth_signature: signature,
-	        oauth_signature_method: "HMAC-SHA1",
-	        oauth_timestamp: unixtime,
-	        oauth_version: "1.0"
-	        }
-	    });
-	    
-	    alert(jsonData);
-	    
-	    alert("final");
-	
-	    //Request Access Token
-	    $.ajax({
-	        url: "http://api.twitter.com/oauth/request_token",
-	        type: "post",
-	        headers: jsonData,
-	        dataType: "jsonp",
-	        success: function (data) {
-	            alert(data);
-	        },
-	        error: function (data) {
-	            alert("Error");
-	        }
-        
-       		 })
-       		 
-       	alert("Json Done");	 
-       		 
-        }
-        
-        function upload()
-        {
-            var url = 'https://api.twitter.com/oauth/request_token';
-            
-            var form = document.createElement('form');
-    		
-			setFormAttribute(form, 'action', url);
-		    setFormAttribute(form, 'method', 'POST');
-		    setFormAttribute(form, 'target', 'targetwindow');
-            
-            var callbackURL = createNamedElement('input', 'oauth_callback', document);
-		    callbackURL.type = 'hidden';
-		    callbackURL.value = "http%3A%2F%2Falexjam.es%2Ftwitter.html";
-		    form.appendChild(callbackURL);
-		    
-	   var oauth_nonce = createNamedElement('input', 'oauth_nonce', document);
-		    oauth_nonce.type = 'hidden';
-		    oauth_nonce.value = "IamtheOneandOnly";
-		    form.appendChild(oauth_nonce);
-		    
-	   var oauth_signature_method = createNamedElement('input', 'oauth_signature_method', document);
-		    oauth_signature_method.type = 'hidden';
-		    oauth_signature_method.value = "HMAC-SHA1";
-		    form.appendChild(oauth_signature_method);
-		    
-	   var oauth_timestamp = createNamedElement('input', 'oauth_timestamp', document);
-		    oauth_timestamp.type = 'hidden';
-		    oauth_timestamp.value = new Date().getTime();
-		    form.appendChild(oauth_timestamp);
-	   
-	   var oauth_consumer_key = createNamedElement('input', 'oauth_consumer_key', document);
-		    oauth_consumer_key.type = 'hidden';
-		    oauth_consumer_key.value = "rSULJSl20cw9LZvTx21oDw";
-		    form.appendChild(oauth_consumer_key);
-            
-            document.body.appendChild(form);
-    			
-			window.open("about:blank", "targetwindow", "width=620px,height=550px,resizable=0,scrollbars=1");
-		    form.submit();
-		    
-		    console.log("FacebookUploadCompleted");
-            
-        }
-        
-        function createNamedElement(tag, name, doc) {
-            doc = doc || window.document;
-            var element;
-            if (navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
-                element = doc.createElement('<' + tag + ' name="' + name + '">');
-            }
-            else {
-                element = doc.createElement(tag);
-                element.name = name;
-            }
-            return element;
-        }
-        
-        function setFormAttribute(form, name, value) {
-            var valueAttr = document.createAttribute(name);
-            valueAttr.value = value;
-            form.attributes.setNamedItem(valueAttr);
-            return form;
-        }
+  <script type="text/javascript" src="jsOauth-1.3.1.js"></script>
+
+        <script type="text/javascript">
+            var options={
+                consumerKey: 'rSULJSl20cw9LZvTx21oDw',
+                consumerSecret: 'DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg',
+                callbackUrl: 'http://alexjam.es/twitter.html',
+            };
+
+            oauth=OAuth(options);
+            oauth.get("https://api.twitter.com/oauth/request_token",function(data){
+                requestparams=data.text;
+                console.log(options);
+                alert(data.text);
+                window.open("https://api.twitter.com/oauth/authorize?"+data);
+                },
+                function(data){alert("UnAuthorized...:("+data.text);}
+            );
+        </script>
 
             
     </script>
