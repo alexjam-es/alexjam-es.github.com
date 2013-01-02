@@ -12,7 +12,7 @@
             
             $('#tweet').click(function(){
             	var d = new Date().getTime();
-                alert(d);
+                
                 getSignature();
             });
             
@@ -20,13 +20,11 @@
         
         function getSignature()
         {
-	    var foo = new Date; // Generic JS date object
-	    var unixtime_ms = foo.getTime(); // Returns milliseconds since the epoch
-	    var unixtime = parseInt(unixtime_ms / 1000);
-	
+	    var unixtime = parseInt(new Date.getTime() / 1000);
+	    alert(unixtime);
 	    var callBackURL = "oob"; //oob for now
-	    var nonce = "12342897";
-	
+	    var nonce = unixtime;
+            alert(nonce);	
 	    //Create Signature Base String using formula
 	    var baseSign = "POST" + "&" + encodeURIComponent("https://api.twitter.com/oauth/request_token").toString() + "&"
 	     + encodeURIComponent("oauth_callback") + "%3D" + encodeURIComponent(callBackURL)
@@ -43,8 +41,9 @@
 	
 	    //Create Signature, With consumer Secret key we sign the signature base string
 	   // var signature = b64_hmac_sha1("DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg", baseSign);
+	    alert(baseSign);
 	    var signature = Crypto.HMAC(Crypto.SHA1, baseSign, "DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg")
-	    console.log(signature);
+	    alert(signature);
 	    //Build headers from signature
 	    var jsonData = JSON.stringify({
 	        Authorization: {
