@@ -4,6 +4,8 @@
 </head>
 <body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-crypto-sha1.js"></script>
+    <script type="text/javascript" src="http://crypto-js.googlecode.com/files/2.0.0-hmac-min.js"></script>
     <script>
     
         $(function(){
@@ -40,8 +42,8 @@
 	     + encodeURIComponent("oauth_version") + "%3D" + encodeURIComponent("1.0");
 	
 	    //Create Signature, With consumer Secret key we sign the signature base string
-	    var signature = b64_hmac_sha1("DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg", baseSign);
-	
+	   // var signature = b64_hmac_sha1("DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg", baseSign);
+	    var signature = Crypto.HMAC(Crypto.SHA1, baseSign, "DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg")
 	    //Build headers from signature
 	    var jsonData = JSON.stringify({
 	        Authorization: {
