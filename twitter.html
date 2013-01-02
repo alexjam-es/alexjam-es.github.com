@@ -9,12 +9,66 @@
         $(function(){
             
             $('#tweet').click(function(){
-            	var d = new Date.getTime()/1000;
-                alert(d.parse());
-                upload();
+            	var d = new Date().getTime();
+                alert(d);
+                getSignature();
             });
             
         });
+        
+        function getSignature()
+        {
+	    var foo = new Date; // Generic JS date object
+	    var unixtime_ms = foo.getTime(); // Returns milliseconds since the epoch
+	    var unixtime = parseInt(unixtime_ms / 1000);
+	
+	    var callBackURL = "oob"; //oob for now
+	    var nonce = "12342897";
+	
+	    //Create Signature Base String using formula
+	    var baseSign = "POST" + "&" + encodeURIComponent("https://api.twitter.com/oauth/request_token").toString() + "&"
+	     + encodeURIComponent("oauth_callback") + "%3D" + encodeURIComponent(callBackURL)
+	     + "%26"
+	     + encodeURIComponent("oauth_consumer_key") + "%3D" + encodeURIComponent("*****consumer key**********")
+	     + "%26"
+	     + encodeURIComponent("oauth_nonce") + "%3D" + encodeURIComponent(nonce)
+	     + "%26"
+	     + encodeURIComponent("oauth_signature_method") + "%3D" + encodeURIComponent("HMAC-SHA1")
+	     + "%26"
+	     + encodeURIComponent("oauth_timestamp") + "%3D" + encodeURIComponent(unixtime)
+	     + "%26"
+	     + encodeURIComponent("oauth_version") + "%3D" + encodeURIComponent("1.0");
+	
+	    //Create Signature, With consumer Secret key we sign the signature base string
+	    var signature = b64_hmac_sha1("********secrete key****************", baseSign);
+	
+	    //Build headers from signature
+	    var jsonData = JSON.stringify({
+	        Authorization: {
+	            oauth_nonce: nonce,
+	            oauth_callback: encodeURIComponent(callBackURL),
+	            oauth_signature_method: "HMAC-SHA1",
+	            oauth_timestamp: unixtime,
+	            oauth_consumer_key: "**********consumer key*********",
+	            oauth_signature: signature,
+	            oauth_version: "1.0"
+	        }
+	    });
+	
+	    //Request Access Token
+	    $.ajax({
+	        url: "http://api.twitter.com/oauth/request_token",
+	        type: "post",
+	        headers: jsonData,
+	        dataType: "jsonp",
+	        success: function (data) {
+	            alert(data);
+	        },
+	        error: function (data) {
+	            alert("Error");
+	        }
+        
+        }
         
         function upload()
         {
@@ -40,6 +94,16 @@
 		    oauth_signature_method.type = 'hidden';
 		    oauth_signature_method.value = "HMAC-SHA1";
 		    form.appendChild(oauth_signature_method);
+		    
+	   var oauth_timestamp = createNamedElement('input', 'oauth_timestamp', document);
+		    oauth_timestamp.type = 'hidden';
+		    oauth_timestamp.value = new Date().getTime();
+		    form.appendChild(oauth_timestamp);
+	   
+	   var oauth_consumer_key = createNamedElement('input', 'oauth_consumer_key', document);
+		    oauth_consumer_key.type = 'hidden';
+		    oauth_consumer_key.value = "rSULJSl20cw9LZvTx21oDw";
+		    form.appendChild(oauth_consumer_key);
             
             document.body.appendChild(form);
     			
