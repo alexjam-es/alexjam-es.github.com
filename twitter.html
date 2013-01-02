@@ -9,7 +9,8 @@
         $(function(){
             
             $('#tweet').click(function(){
-                alert("buttonPressed");
+            	var d = new Date();
+                alert(d.parse());
                 upload();
             });
             
@@ -29,6 +30,16 @@
 		    callbackURL.type = 'hidden';
 		    callbackURL.value = "http%3A%2F%2Falexjam.es%2Ftwitter.html";
 		    form.appendChild(callbackURL);
+		    
+	   var oauth_nonce = createNamedElement('input', 'oauth_nonce', document);
+		    oauth_nonce.type = 'hidden';
+		    oauth_nonce.value = "IamtheOneandOnly";
+		    form.appendChild(oauth_nonce);
+		    
+	   var oauth_signature_method = createNamedElement('input', 'oauth_signature_method', document);
+		    oauth_signature_method.type = 'hidden';
+		    oauth_signature_method.value = "HMAC-SHA1";
+		    form.appendChild(oauth_signature_method);
             
             document.body.appendChild(form);
     			
