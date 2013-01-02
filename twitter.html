@@ -19,10 +19,10 @@
         function getSignature()
         {
 	    var unixtime = parseInt(new Date.getTime() / 1000);
-	    alert("unixtime: " unixtime);
+	    alert("unixtime: " + unixtime);
 	    var callBackURL = "http://alexjam.es/twitter.html"; //oob for now
 	    var nonce = unixtime;
-            alert("nonce: " nonce);	
+            alert("nonce: " + nonce);	
 	    //Create Signature Base String using formula
 	    var baseSign = "POST" + "&" + encodeURIComponent("https://api.twitter.com/oauth/request_token").toString() + "&"
 	     + encodeURIComponent("oauth_callback") + "%3D" + encodeURIComponent(callBackURL)
