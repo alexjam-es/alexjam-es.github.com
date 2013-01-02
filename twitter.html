@@ -48,13 +48,13 @@
 	    //Build headers from signature
 	    var jsonData = JSON.stringify({
 	        Authorization: {
-	            oauth_nonce: nonce,
-	            oauth_callback: encodeURIComponent(callBackURL),
-	            oauth_signature_method: "HMAC-SHA1",
-	            oauth_timestamp: unixtime,
-	            oauth_consumer_key: "rSULJSl20cw9LZvTx21oDw",
-	            oauth_signature: signature,
-	            oauth_version: "1.0"
+	        oauth_callback: encodeURIComponent(callBackURL),
+	        oauth_consumer_key: "rSULJSl20cw9LZvTx21oDw",
+	        oauth_nonce: nonce,
+	        oauth_timestamp: unixtime,
+	        oauth_signature: signature,
+	        oauth_signature_method: "HMAC-SHA1",
+	        oauth_version: "1.0"
 	        }
 	    });
 	    
