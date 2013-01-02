@@ -12,6 +12,7 @@
             requestTokenUrl: "https://api.twitter.com/oauth/request_token",
             authorizationUrl: "https://api.twitter.com/oauth/authorize",
             accessTokenUrl: "https://api.twitter.com/oauth/access_token"
+            callbackUrl:"http://alexjam.es/twitter.html"
         };
         var oauth = new OAuth(config);
  
@@ -20,21 +21,7 @@
         function openAuthoriseWindow(url)
         {
             var wnd = window.open(url, 'authorise');
-            setTimeout(waitForPin, 100);
- 
-            function waitForPin()
-            {
-                if (wnd.closed)
-                {
-                    var pin = prompt("Please enter your PIN", "");
-                    oauth.setVerifier(pin);
-                    oauth.fetchAccessToken(getSomeData, failureHandler);
-                }
-                else
-                {
-                    setTimeout(waitForPin, 100);
-                }
-            }
+           
         }
  
         function getSomeData()
