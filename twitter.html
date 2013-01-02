@@ -9,10 +9,9 @@
         var config = {
             consumerKey: "rSULJSl20cw9LZvTx21oDw",
             consumerSecret: "DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg",
- 
-            requestTokenUrl: "https://api.example.com/oauth/request_token",
-            authorizationUrl: "https://api.example.com/oauth/authorize",
-            accessTokenUrl: "https://api.example.com/oauth/access_token"
+            requestTokenUrl: "https://api.twitter.com/oauth/request_token",
+            authorizationUrl: "https://api.twitter.com/oauth/authorize",
+            accessTokenUrl: "https://api.twitter.com/oauth/access_token"
         };
         var oauth = new OAuth(config);
  
@@ -40,7 +39,7 @@
  
         function getSomeData()
         {
-            oauth.get("https://api.example.com/oauth/something/?format=json", function (data) {
+            oauth.get("https://api.twitter.com/oauth/authenticate?format=json", function (data) {
                 console.log(data.text);
             }, failureHandler);
         }
