@@ -10,9 +10,55 @@
             
             $('#tweet').click(function(){
                 alert("buttonPressed");
+                upload();
             });
             
         });
+        
+        funtion upload()
+        {
+            var url = 'https://api.twitter.com/oauth/request_token';
+            
+            var form = document.createElement('form');
+    		
+			setFormAttribute(form, 'action', url);
+		    setFormAttribute(form, 'method', 'POST');
+		    setFormAttribute(form, 'target', 'targetwindow');
+            
+            var callbackURL = createNamedElement('input', 'oauth_callback', document);
+		    callbackURL.type = 'hidden';
+		    callbackURL.value = "http%3A%2F%2Falexjam.es%2Ftwitter.html";
+		    form.appendChild(callbackURL);
+            
+            document.body.appendChild(form);
+    			
+			window.open("about:blank", "targetwindow", "width=620px,height=550px,resizable=0,scrollbars=1");
+		    form.submit();
+		    
+		    console.log("FacebookUploadCompleted");
+            
+        }
+        
+        function createNamedElement(tag, name, doc) {
+            doc = doc || window.document;
+            var element;
+            if (navigator.userAgent.toLowerCase().indexOf('msie') != -1) {
+                element = doc.createElement('<' + tag + ' name="' + name + '">');
+            }
+            else {
+                element = doc.createElement(tag);
+                element.name = name;
+            }
+            return element;
+        }
+        
+        function setFormAttribute(form, name, value) {
+            var valueAttr = document.createAttribute(name);
+            valueAttr.value = value;
+            form.attributes.setNamedItem(valueAttr);
+            return form;
+        }
+
             
     </script>
     <a href="" id="tweet">
