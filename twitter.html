@@ -29,7 +29,7 @@
 	    var baseSign = "POST" + "&" + encodeURIComponent("https://api.twitter.com/oauth/request_token").toString() + "&"
 	     + encodeURIComponent("oauth_callback") + "%3D" + encodeURIComponent(callBackURL)
 	     + "%26"
-	     + encodeURIComponent("oauth_consumer_key") + "%3D" + encodeURIComponent("*****consumer key**********")
+	     + encodeURIComponent("oauth_consumer_key") + "%3D" + encodeURIComponent("rSULJSl20cw9LZvTx21oDw")
 	     + "%26"
 	     + encodeURIComponent("oauth_nonce") + "%3D" + encodeURIComponent(nonce)
 	     + "%26"
@@ -40,7 +40,7 @@
 	     + encodeURIComponent("oauth_version") + "%3D" + encodeURIComponent("1.0");
 	
 	    //Create Signature, With consumer Secret key we sign the signature base string
-	    var signature = b64_hmac_sha1("********secrete key****************", baseSign);
+	    var signature = b64_hmac_sha1("DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg", baseSign);
 	
 	    //Build headers from signature
 	    var jsonData = JSON.stringify({
@@ -49,7 +49,7 @@
 	            oauth_callback: encodeURIComponent(callBackURL),
 	            oauth_signature_method: "HMAC-SHA1",
 	            oauth_timestamp: unixtime,
-	            oauth_consumer_key: "**********consumer key*********",
+	            oauth_consumer_key: "rSULJSl20cw9LZvTx21oDw",
 	            oauth_signature: signature,
 	            oauth_version: "1.0"
 	        }
@@ -68,6 +68,8 @@
 	            alert("Error");
 	        }
         
+       		 })
+       		 
         }
         
         function upload()
