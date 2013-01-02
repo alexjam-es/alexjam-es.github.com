@@ -42,8 +42,8 @@
 	    //Create Signature, With consumer Secret key we sign the signature base string
 	   // var signature = b64_hmac_sha1("DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg", baseSign);
 	    alert(baseSign);
-	    //var signature = Crypto.HMAC(Crypto.SHA1, baseSign, "DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg")
-	    var signature = Crypto.HMAC(Crypto.SHA1, "DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg", baseSign)
+	    var signature = Crypto.HMAC(Crypto.SHA1, baseSign, "DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg")
+	 
 	    alert(signature);
 	    //Build headers from signature
 	    var jsonData = JSON.stringify({
