@@ -9,7 +9,7 @@
         $(function(){
             
             $('#tweet').click(function(){
-            	var d = new Date();
+            	var d = Date.getTime()/1000;
                 alert(d.parse());
                 upload();
             });
