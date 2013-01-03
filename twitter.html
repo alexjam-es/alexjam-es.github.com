@@ -12,7 +12,21 @@
          $('.photoComments').live('keyup blur', function() {
         
         var lengthComment = $(this).attr('value').length;
-        $(this).parent(".photoWrapper").siblings(".tweetCount").text(lengthComment);
+        
+        
+        if (lengthComment>68)
+        {
+          $(this).parent(".photoWrapper").siblings(".tweetCount").text(119-parseInt(lengthComment,10));
+          $(this).parent(".photoWrapper").siblings(".tweetWarning").text(" characters remaining");
+        }
+        
+        else
+        {
+          $(this).parent(".photoWrapper").siblings(".tweetCount").text("");
+          $(this).parent(".photoWrapper").siblings(".tweetWarning").text("");
+        }
+        
+        
         
         });  
          
