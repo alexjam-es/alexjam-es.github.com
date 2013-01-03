@@ -12,7 +12,6 @@
          var txts = document.getElementsByClassName('photoComments');
 
           for(var i = 0, l = txts.length; i < l; i++) {
-            if(/^[0-9]+$/.test(119)) { 
               var func = function() { 
                 var len = parseInt(119, 10); 
         
@@ -21,7 +20,6 @@
                   this.value = this.value.substr(0, len); 
                   return false; 
                 } 
-              }
         
               txts[i].onkeyup = func;
               txts[i].onblur = func;
