@@ -11,7 +11,8 @@
           
          $('.photoComments').live('keyup blur', function() {
         
-        alert("I have been typed into");
+        var lengthComment = $(this).attr('value').length;
+        $(this).parent(".photoWrapper").siblings('.tweetCount').val(lengthComment);
         
         });  
          
