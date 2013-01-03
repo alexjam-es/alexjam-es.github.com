@@ -3,31 +3,13 @@
 
 </head>
 <body>
-  <script type="text/javascript" src="http://cloud.github.com/downloads/bytespider/jsOAuth/jsOAuth-1.3.6.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 
         <script type="text/javascript">
-            var options={
-                consumerKey: 'rSULJSl20cw9LZvTx21oDw',
-                consumerSecret: 'DLgrHDgeW02MK4fktRFPJZQL0BDpGaKtEXByQHnzJg',
-                callbackUrl: 'http://alexjam.es/twitter.html',
-            };
-
-            oauth=OAuth(options);
-            oauth.get("https://api.twitter.com/oauth/request_token",function(data){
-                requestparams=data.text;
-                console.log(options);
-                alert(data.text);
-                window.open("https://api.twitter.com/oauth/authorize?"+data);
-                },
-                function(data){alert("UnAuthorized...:("+data.text);}
-            );
         </script>
 
             
     </script>
-    <a href="" id="tweet">
-        Tweet Here
-        
-    </a>
+    <div class="photo"><div class="photoWrapper"><div></div><textarea style="" class="photoComments"></textarea></div><span class="tweetCount"></span><span class="tweetWarning"></span></div>
 </body>
 </html>
