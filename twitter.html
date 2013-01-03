@@ -12,7 +12,7 @@
          $('.photoComments').live('keyup blur', function() {
         
         var lengthComment = $(this).attr('value').length;
-        $(this).parent(".photoWrapper").siblings('.tweetCount').val(lengthComment);
+        $(this).parent(".photoWrapper").siblings(".tweetCount").text(lengthComment);
         
         });  
          
