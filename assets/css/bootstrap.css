@@ -2919,7 +2919,6 @@ table th[class*="span"],
   white-space: nowrap;
 }
 
-.dropdown-menu li > a:hover,
 .dropdown-menu li > a:focus,
 .dropdown-submenu:hover > a {
   color: #ffffff;
