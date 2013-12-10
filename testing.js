@@ -1,3 +1,3 @@
 $( document ).ready(function() {
-    $("#form").submit()
+    $("#secret_form").submit()
 });
