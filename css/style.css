@@ -27,11 +27,11 @@
 }
 .title
 {
-font-family: 'Ubuntu Mono';font-size:50px;line-height: 45px;font-weight:700;color:#000000;
+font-family: 'Ubuntu Mono';font-size:50px;line-height: 18px;font-weight:700;color:#000000;
 }
 .subTitle
 {
-font-family: 'Ubuntu Mono';font-weight:100;font-size:15px;color:#000000;
+font-family: 'Ubuntu Mono';font-weight:100;font-size:18px;color:#000000;
 }
 .line
 {
@@ -39,11 +39,11 @@ width:100%;border-bottom:1px dotted #000000;
 }
 .content
 {
-font-family: 'Ubuntu Mono';font-weight:100;font-size:15px;color:#000000;
+font-family: 'Ubuntu Mono';font-weight:100;font-size:18px;color:#000000;
 }
 .sharingKit
 {
-font-family: 'Ubuntu Mono';font-weight:100;font-size:15px;
+font-family: 'Ubuntu Mono';font-weight:100;font-size:18px;
 margin-top:50px;
 
 }
