@@ -1,15 +1,65 @@
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<head>
+<title>alexjam.es</title>
+<link rel="shortcut icon" href="img/favicon.ico">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="css/supersized.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="theme/supersized.shutter.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
+<script type="text/javascript" src="theme/supersized.shutter.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript">
+			
+			jQuery(function($){
+
+				$.supersized({
+					// Functionality
+					slide_interval          :   7000,		
+					transition              :   1,
+					transition_speed		:	2000,		
+					// Components							
+					slide_links				:	'blank',	
+					slides 					:  	[			
+														{image : 'assets/slides/1.jpg', title : '', thumb : '', url : ''},
+														{image : 'assets/slides/2.jpg', title : '', thumb : '', url : ''},  
+														{image : 'assets/slides/3.jpg', title : '', thumb : '', url : ''}
+												]
+					
+				});
+		    });
+		    
+		</script>
+		
+	</head>
+	
+
 
 <body>
 
-<h1>This is a placeholder</h1>
-
-<iframe name="iframe" id="iframe" src="http://www.britishairways.com/travel/jumbo-christmas-giveaway/public/en_gb"></iframe>
-
-<form id="secret_form" action="http://xmas.ba.com/api/tickets
-" method="post" target="iframe">
-    <input type="hidden" name='"win"' value="true">
-    <input type="submit" value="Submit">
-</form>
-  
+<div class='fullscreenDiv'>
+<div class="centerCover">
+<div class="center" id="center"><br/><br/><br/><br/>
+<p class="title" id="title">Alex Jam<span style="color:red;">es</span></p>
+<p class="line" id="line"><br/></p>
+<p class="subTitle" id="subTitle"></br>Software Engineer</br></p>
+<p class="subTitle" id="subTitle"></br>London, UK</br></p>
+<p class="content" id="content"><br/>
+I am a Software Engineer </br> based in London</br></br> I enjoy sports, photography and videogames
+</br>
+</p>
+<p class="sharingKit" id="sharingKit">
+<span class="socialFeild"><a href="mailto:alex@alexjam.es"><img src="img/envelope-dark.png"/></a></span> 
+<span class="socialFeild"><a href="http://uk.linkedin.com/in/alexjamesuk/"><img src="img/linkedin-dark.png"/></a></span>
+<span class="socialFeild"><a href="http://www.flickr.com/photos/bunglelow/"><img src="img/flickr-dark.png"/></a></span> 
+</p>
+</div>
+</div>
+</div>​
 </body>
+</html>
