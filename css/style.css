@@ -28,17 +28,17 @@
     border-bottom: 1px dotted #000000;
 }
 
-.socialLinks
+.contact_links
 {
     margin-top: 50px;
 }
 
-.socialFeild
+.contact_field
 {
     opacity: 0.4;
     padding: 10px;
 }
-.socialFeild: hover
+.contact_field: hover
 {
     opacity: 100;
     padding: 10px;
