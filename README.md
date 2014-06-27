@@ -1,4 +1,4 @@
 alexjam-es.github.com
 =====================
 
-Site for alexjam.es
+Website for alexjam.es
